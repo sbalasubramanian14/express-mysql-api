@@ -1,0 +1,7 @@
+
+// app.get('/', (req, res) => {
+//     //res.send("<h1>Hello World</h1>"); // not used too much
+//     //res.json - to send json data
+//     //res.template - template engine to render a template(handlebars, ejs) with variables
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// });
