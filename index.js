@@ -1,37 +1,19 @@
 const express = require("express");
 const path = require("path");
-const logger =  require("./middleware/logger");
+const logger = require("./middleware/logger");
 
 const app = express();
+
+// Init middleware
+app.use(logger);
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// Init middleware
-app.use(logger);
-
-const users = [
-  {
-    id: 1,
-    name: "Naruto",
-    email: "naruto@gmail.com",
-  },
-  {
-    id: 2,
-    name: "Hinata",
-    email: "hinata@gmail.com",
-  },
-];
-
-// Get all users
-app.get('/api/users', (req, res) => {
-    res.json(users);
-});
-
-// Get single user
-app.get('/api/user/:id', (req, res) => {
-    res.send(req.params.id);
-});
+// USer routes
+app.use('/api/users', require('./routes/api/users'))
 
 // App config
 const PORT = process.env.PORT || 5000;
