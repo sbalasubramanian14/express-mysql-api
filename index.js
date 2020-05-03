@@ -7,13 +7,19 @@ const app = express();
 // Init middleware
 app.use(logger);
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// USer routes
-app.use('/api/users', require('./routes/api/users'))
+// DB Connection
+require("./src/database/connection");
+
+// Bootstrap
+require("./src/bootstrap")();
+
+// User routes
+app.use("/api/users", require("./src/routes/api/users"));
 
 // App config
 const PORT = process.env.PORT || 5000;
