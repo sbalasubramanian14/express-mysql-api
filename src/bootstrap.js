@@ -5,9 +5,9 @@ module.exports = async () => {
     console.log("Error: ", err);
   };
 
-  // Use this to initialize db
-  //   const user = await User.create({
-  //     name: "Naruto",
-  //     email: "Naruto@gmail.com",
-  //   }).catch(errHandler);
+  //Use this to initialize db
+  // const user = await User.create({
+  //   name: "Naruto",
+  //   email: "Naruto@gmail.com",
+  // }).catch(errHandler);
 };
