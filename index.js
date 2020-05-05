@@ -4,6 +4,8 @@ const logger = require("./middleware/logger");
 const { catch404, errorHandler } = require("./middleware/errorHandler");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./docs/swagger.json");
 
 const app = express();
 
@@ -16,6 +18,7 @@ app.use(cookieParser());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // DB Connection
 require("./src/database/connection");

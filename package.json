@@ -13,7 +13,9 @@
   "keywords": [
     "express",
     "server",
-    "backend"
+    "backend",
+    "mysql",
+    "api"
   ],
   "author": "Balasubramanian",
   "license": "ISC",
