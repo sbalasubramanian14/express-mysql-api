@@ -21,7 +21,8 @@ require("./src/database/connection");
 require("./src/bootstrap")();
 
 // User routes
-app.use("/api/users", require("./src/routes/api/users"));
+app.use("/api/v2/users", require("./src/routes/api/usersV2"));
+app.use("/api/v1/users", require("./src/routes/api/users"));
 
 // App config
 const PORT = process.env.PORT || 5000;

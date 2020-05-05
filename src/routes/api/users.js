@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { errHandler, paginate } = require("../../helpers");
 const User = require("./../../models/User");
 
 // Get all users
@@ -109,20 +110,5 @@ router.get("/:page/:pageSize", async (req, res) => {
 
   res.json(users);
 });
-
-// Helpers
-const errHandler = (err) => {
-  console.log("Error: ", err);
-};
-
-const paginate = ({ page, pageSize }) => {
-  const offset = page * pageSize;
-  const limit = pageSize;
-
-  return {
-    offset,
-    limit,
-  };
-};
 
 module.exports = router;

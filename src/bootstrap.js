@@ -1,11 +1,6 @@
 module.exports = async () => {
-  const User = require("./models/User");
-
-  const errHandler = (err) => {
-    console.log("Error: ", err);
-  };
-
-  //Use this to initialize db
+  // Do your bootstrap code here, such as db initializiation
+  //
   // const user = await User.create({
   //   name: "Naruto",
   //   email: "Naruto@gmail.com",
